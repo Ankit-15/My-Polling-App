@@ -1,0 +1,8 @@
+ <nav class="navbar pmd-navbar">
+
+        <a class="nav" href ="/accounts">Home</a>
+        <form  action="/accounts/logout/" method="post">
+
+        {% csrf_token %}
+           <input class="nav" id="wrap" type="submit"  value="Logout">
+  </form></nav>

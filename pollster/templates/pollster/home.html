@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div >
+    <div class="pol">
+        <div class="page-header"> The Pollster</div>
+        <div class="i"><em>Welcome to my Polling App</em></div>
+
+<br><br>
+        <a class ="btn2 btn21" href ="{% url 'accounts:login' %}" method='post'>
+            <span>Login</span></a>
+
+
+<br><br>
+<br>
+
+  <a class ="btn2 btn22"  href ="{% url 'accounts:signup' %}" method='post'>
+      <span>SignUp</span></a>
+
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'partials/_navbar.html'%}
+<h1 class ="container">Poll Questions</h1>
+{% if latest_question_list %}
+{% for question in latest_question_list %}<ul>
+<div>
+
+        <p class ="ind"><li>{{ question.question_text }}</li></p>
+        <a class="btn1" class="a1" href ="{% url 'polls:detail' question.id %}" >Vote Now</a>
+        <a class="btn1"  class="a2" href ="{% url 'polls:results' question.id %}" >Results</a>
+        <br><br>
+        <br>
+
+    </div>
+</ul>
+{% endfor %}
+{% else %}
+<p>No polls available</p>
+{% endif %}
+{% endblock %}

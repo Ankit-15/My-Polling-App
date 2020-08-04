@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+      	{% include 'partials/_navbar.html'%}
+<h1>{{ question.question_text }}</h1>
+<table style="width:75%" border="solid dashed" >
+
+    {% for choice in question.choice_set.all %}
+
+
+    <tr class ="listit" id="table">
+      <td>  {{ choice.choice_text }}</td> <span><td>{{ choice.votes }}
+            vote{{ choice.votes | pluralize }}</td></span>
+    </tr>
+
+
+{% endfor %}
+</table><br><br><br><br><div class="yu">
+<a class="btn1" margin="auto" href ="{% url 'polls:index' %}">Back To Polls</a>
+</div>{% endblock %}

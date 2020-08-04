@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'partials/_navbar.html'%}
+<div ><h1 class ="">{{ question.question_text }}</h1>
+
+{% if error_message %}
+<p >
+    {{ error_message }}
+</p>
+{% endif %}
+
+<form action ="{% url 'polls:vote' question.id %}" method ="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+    <div class ="form-check">
+        <h3><input type ="radio" name ="choice"
+            value ="{{ choice.id }}" />
+      <b>  <label for ="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+</b></h3>    </div>
+    {% endfor %}
+    <input type ="submit"  value ="Vote" class ="button" class="btn2">
+</form><div class="yu">
+<a   class="btn1"  href ="{% url 'polls:index' %}">Back To Polls</a>
+</div></div>
+{% endblock %}
